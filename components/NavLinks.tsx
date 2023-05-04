@@ -2,6 +2,7 @@
 
 import { categories } from '@/constants';
 import { usePathname } from 'next/navigation';
+import NavLink from './NavLink';
 
 const NavLinks = () => {
     const pathname = usePathname();
