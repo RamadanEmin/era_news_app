@@ -39,6 +39,26 @@ const fetchNews = async (
 			}
 		}
 	`;
+
+	const res = await fetch('https://otopeni.stepzen.net/api/pondering-jackal/__graphql', {
+		method: 'POST',
+		cache: isDynamic ? 'no-cache' : 'default',
+		next: isDynamic ? { revalidate: 0 } : { revalidate: 20 },
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Apikey ${process.env.STEPZEN_API_KEY}`
+		},
+		body: JSON.stringify({
+			query,
+			variables: {
+				access_key: process.env.MEDIASTACK_API_KEY,
+				categories: category,
+				keywords: keywords
+			}
+		})
+	});
+
+	const newsResponse = await res.json();
 };
 
 export default fetchNews;
