@@ -1,4 +1,5 @@
 import LiveTimestamp from './LiveTimestamp';
+import ReadModeButton from './ReadModeButton';
 
 type Props = {
     article: Article;
@@ -31,6 +32,7 @@ const Article = ({ article }: Props) => {
                         </p>
                     </footer>
                 </div>
+                <ReadModeButton article={article} />
             </div>
         </article>
     );
