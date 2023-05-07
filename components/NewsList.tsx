@@ -1,3 +1,5 @@
+import Article from './Article';
+
 type Props = {
     news: NewsResponse
 }
