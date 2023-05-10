@@ -1,17 +1,20 @@
-/* eslint-disable no-undef */
 import LiveTimestamp from '@/components/LiveTimestamp';
-import { notFound } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
-type Props = {
-    searchParams?: Article;
-}
-
-const ArticlePage = ({ searchParams }: Props) => {
-    if ((searchParams && Object.entries(searchParams).length === 0) || !searchParams) {
-        return notFound();
-    }
-
-    const article: Article = searchParams;
+function ArticlePage() {
+	const data = useSearchParams();
+	const article: Article = {
+		author: data.get('author'),
+		category: data.get('category')!,
+		country: data.get('country')!,
+		description: data.get('description')!,
+		image: data.get('image'),
+		language: data.get('language')!,
+		published_at: data.get('published_at')!,
+		source: data.get('source')!,
+		title: data.get('title')!,
+		url: data.get('url')!,
+	};
 
     return (
         <article>
