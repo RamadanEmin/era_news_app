@@ -1,3 +1,5 @@
+'use client';
+
 import LiveTimestamp from '@/components/LiveTimestamp';
 import { useSearchParams } from 'next/navigation';
 
